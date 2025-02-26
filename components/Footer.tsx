@@ -18,7 +18,6 @@ const Footer = () => {
               <li><Link href="/returns-policy" className="hover:text-foreground/70">Returns Policy</Link></li>
               <li><Link href="/make-a-return" className="hover:text-foreground/70">Make A Return</Link></li>
               <li><Link href="/orders" className="hover:text-foreground/70">Orders</Link></li>
-              <li><Link href="/submit-fake" className="hover:text-foreground/70">Submit a Fake</Link></li>
             </ul>
           </div>
 
@@ -35,14 +34,11 @@ const Footer = () => {
           <div>
             <h3 className="font-montserrat text-sm font-medium mb-4">PAGES</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/refer-friend" className="hover:text-foreground/70">Refer a Friend</Link></li>
-              <li><Link href="/gymshark-central" className="hover:text-foreground/70">Gymshark Central</Link></li>
+              <li><Link href="/gymshark-central" className="hover:text-foreground/70">Bansita Central</Link></li>
               <li><Link href="/about-us" className="hover:text-foreground/70">About Us</Link></li>
               <li><Link href="/careers" className="hover:text-foreground/70">Careers</Link></li>
-              <li><Link href="/student-discount" className="hover:text-foreground/70">Student Discount</Link></li>
-              <li><Link href="/military-discount" className="hover:text-foreground/70">Military Discount</Link></li>
+              <li><Link href="/student-discount" className="hover:text-foreground/70">Contact Us</Link></li>
               <li><Link href="/accessibility" className="hover:text-foreground/70">Accessibility Statement</Link></li>
-              <li><Link href="/factory-list" className="hover:text-foreground/70">Factory List</Link></li>
               <li><Link href="/sustainability" className="hover:text-foreground/70">Sustainability</Link></li>
             </ul>
           </div>
@@ -54,7 +50,7 @@ const Footer = () => {
               <Link href="/blog" className="block">
                 <div className="bg-foreground/[.02] p-4 rounded-lg">
                   <Image
-                    src="/images/bansita.svg"
+                    src="/images/blog.avif"
                     alt="BLOG"
                     width={100}
                     height={32}
@@ -66,7 +62,7 @@ const Footer = () => {
               <Link href="/email-signup" className="block">
                 <div className="bg-foreground/[.02] p-4 rounded-lg">
                   <Image
-                    src="/images/bansita.svg"
+                    src="/images/email.avif"
                     alt="EMAIL SIGN UP"
                     width={100}
                     height={32}
@@ -78,7 +74,7 @@ const Footer = () => {
               <Link href="/training" className="block">
                 <div className="bg-foreground/[.02] p-4 rounded-lg">
                   <Image
-                    src="/images/bansita.svg"
+                    src="/images/training.avif"
                     alt="BANSITA TRAINING"
                     width={100}
                     height={32}
@@ -95,13 +91,11 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           {/* Payment Methods */}
           <div className="flex flex-wrap gap-2 mb-4 md:mb-0">
-            <Image src="/images/visa.svg" alt="Visa" width={38} height={24} />
-            <Image src="/images/mastercard.svg" alt="Mastercard" width={38} height={24} />
-            <Image src="/images/paypal.svg" alt="PayPal" width={38} height={24} />
-            <Image src="/images/apple-pay.svg" alt="Apple Pay" width={38} height={24} />
-            <Image src="/images/klarna.svg" alt="Klarna" width={38} height={24} />
-            <Image src="/images/amex.svg" alt="American Express" width={38} height={24} />
-            <Image src="/images/afterpay.svg" alt="Afterpay" width={38} height={24} />
+            <Image src="/images/visa-card.svg" alt="Visa" width={38} height={24} />
+            <Image src="/images/mastercard-card.svg" alt="Mastercard" width={38} height={24} />
+            <Image src="/images/paypal-card.svg" alt="PayPal" width={38} height={24} />
+            <Image src="/images/mtn-mobile-money.svg" alt="MTN" width={38} height={24} />
+            <Image src="/images/airtel-money.svg" alt="Airtel" width={38} height={24} />
           </div>
 
           {/* Social Links */}
