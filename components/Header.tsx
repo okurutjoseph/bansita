@@ -26,7 +26,13 @@ const Header = () => {
       <div className="px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex-shrink-0">
-          <h1 className="text-2xl font-bold font-montserrat">BANSITA</h1>
+          <Image
+            src="/images/bansita.svg"
+            alt="BANSITA"
+            width={112}
+            height={36}
+            priority
+          />
         </Link>
 
         {/* Navigation */}
