@@ -46,8 +46,8 @@ const Footer = () => {
           {/* MORE ABOUT BANSITA Section */}
           <div>
             <h3 className="font-montserrat text-sm font-medium mb-4">MORE ABOUT BANSITA</h3>
-            <div className="space-y-4">
-              <Link href="/blog" className="block">
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link href="/blog" className="block flex-1">
                 <div className="bg-foreground/[.02] p-4 rounded-lg">
                   <Image
                     src="/images/blog.avif"
@@ -59,7 +59,7 @@ const Footer = () => {
                   <span className="text-sm">BLOG</span>
                 </div>
               </Link>
-              <Link href="/email-signup" className="block">
+              <Link href="/email-signup" className="block flex-1">
                 <div className="bg-foreground/[.02] p-4 rounded-lg">
                   <Image
                     src="/images/email.avif"
@@ -71,7 +71,7 @@ const Footer = () => {
                   <span className="text-sm">EMAIL SIGN UP</span>
                 </div>
               </Link>
-              <Link href="/training" className="block">
+              <Link href="/training" className="block flex-1">
                 <div className="bg-foreground/[.02] p-4 rounded-lg">
                   <Image
                     src="/images/training.avif"
