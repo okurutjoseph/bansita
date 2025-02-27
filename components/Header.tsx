@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import { useAuth, SignInButton } from "@clerk/nextjs";
+import { useAuth } from "@clerk/nextjs";
 import MiniCart from './MiniCart';
 import { useUser } from "@clerk/nextjs";
 
@@ -28,16 +28,15 @@ const Header = () => {
             <span>Hi, {user?.firstName || 'there'}</span>
           </Link>
         ) : (
-          <SignInButton mode="modal">
-            <button 
-              className="flex items-center gap-1.5 border-r border-[#bbbcbc] h-full px-[1rem] text-[#53565a] hover:text-black text-[0.8rem] font-normal"
-            >
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-5.34 0-8 2.68-8 4v2h16v-2c0-1.32-2.66-4-8-4z"/>
-              </svg>
-              <span>Account</span>
-            </button>
-          </SignInButton>
+          <Link 
+            href="/account/login" 
+            className="flex items-center gap-1.5 border-r border-[#bbbcbc] h-full px-[1rem] text-[#53565a] hover:text-black text-[0.8rem] font-normal"
+          >
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-5.34 0-8 2.68-8 4v2h16v-2c0-1.32-2.66-4-8-4z"/>
+            </svg>
+            <span>Account</span>
+          </Link>
         )}
         <Link 
           href="/accessibility" 
@@ -130,13 +129,11 @@ const Header = () => {
               </svg>
             </Link>
           ) : (
-            <SignInButton mode="modal">
-              <button className="p-2 hover:bg-foreground/[.05] rounded-full">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-5.34 0-8 2.68-8 4v2h16v-2c0-1.32-2.66-4-8-4z"/>
-                </svg>
-              </button>
-            </SignInButton>
+            <Link href="/account/login" className="p-2 hover:bg-foreground/[.05] rounded-full">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-5.34 0-8 2.68-8 4v2h16v-2c0-1.32-2.66-4-8-4z"/>
+              </svg>
+            </Link>
           )}
 
           {/* Cart */}
