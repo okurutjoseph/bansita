@@ -3,27 +3,59 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import { useAuth, SignInButton } from "@clerk/nextjs";
 
 const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const { isSignedIn } = useAuth();
+
+  const handleAccountClick = (e: React.MouseEvent) => {
+    if (!isSignedIn) {
+      e.preventDefault();
+    }
+  };
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-background z-50 border-b border-foreground/[.08]">
+    <header className="fixed top-0 left-0 right-0 bg-background z-50">
       {/* Top Bar */}
-      <div className="hidden sm:flex justify-end items-center px-4 py-1 text-xs space-x-4 bg-foreground/[.02]">
-        <Link href="/account" className="hover:underline">Account</Link>
-        <Link href="/accessibility" className="hover:underline">Accessibility Statement</Link>
-        <Link href="/help" className="hover:underline">Help</Link>
-        <Link href="/email-signup" className="hover:underline">Email Sign Up</Link>
-        <Link href="/blog" className="hover:underline">Blog</Link>
-        <div className="flex items-center space-x-2">
+      <div className="hidden sm:flex justify-end items-center h-[3.5rem] pl-24 text-xs space-x-4 bg-[#ebebeb] font-roboto">
+        {isSignedIn ? (
+          <Link href="/account" className="flex items-center gap-1.5 hover:underline border-r border-[#bbbcbc] pr-4">
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            <span>Account</span>
+          </Link>
+        ) : (
+          <SignInButton mode="modal">
+            <button className="flex items-center gap-1.5 hover:underline border-r border-[#bbbcbc] pr-4">
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+              <span>Account</span>
+            </button>
+          </SignInButton>
+        )}
+        <Link href="/accessibility" className="hover:underline border-r border-[#bbbcbc] pr-4">
+          Accessibility Statement
+        </Link>
+        <Link href="/help" className="hover:underline border-r border-[#bbbcbc] pr-4">
+          Help
+        </Link>
+        <Link href="/email-signup" className="hover:underline border-r border-[#bbbcbc] pr-4">
+          Email Sign Up
+        </Link>
+        <Link href="/blog" className="hover:underline border-r border-[#bbbcbc] pr-4">
+          Blog
+        </Link>
+        <div className="flex items-center space-x-2 px-4">
           <span>US</span>
           <span>English</span>
         </div>
       </div>
 
       {/* Main Header */}
-      <div className="px-4 py-4 flex items-center justify-between">
+      <div className="px-4 py-4 flex items-center justify-between border-b border-foreground/[.08]">
         {/* Logo */}
         <Link href="/" className="flex-shrink-0">
           <Image
@@ -62,11 +94,21 @@ const Header = () => {
           </Link>
 
           {/* Account */}
-          <Link href="/account" className="p-2 hover:bg-foreground/[.05] rounded-full">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-            </svg>
-          </Link>
+          {isSignedIn ? (
+            <Link href="/account" className="p-2 hover:bg-foreground/[.05] rounded-full">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </Link>
+          ) : (
+            <SignInButton mode="modal">
+              <button className="p-2 hover:bg-foreground/[.05] rounded-full">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </button>
+            </SignInButton>
+          )}
 
           {/* Cart */}
           <Link href="/cart" className="p-2 hover:bg-foreground/[.05] rounded-full">

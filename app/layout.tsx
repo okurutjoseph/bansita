@@ -1,39 +1,37 @@
-import type { Metadata } from "next";
-import { Montserrat, Roboto } from "next/font/google";
-import "./globals.css";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import { ClerkProvider } from '@clerk/nextjs'
+import { Inter, Roboto } from 'next/font/google'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import './globals.css'
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin"],
-});
-
+const inter = Inter({ subsets: ['latin'] })
 const roboto = Roboto({
-  variable: "--font-roboto",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-});
+  weight: ['400', '500', '700'],
+  subsets: ['latin'],
+  variable: '--font-roboto',
+})
 
-export const metadata: Metadata = {
-  title: "Bansita - Everyday Comfort",
-  description: "Explore our stylish, high-quality apparel collection by Bansita designed to elevate your wardrobe with timeless pieces and modern trends.",
-};
+export const metadata = {
+  title: 'Bansita',
+  description: 'Your fitness journey starts here',
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en">
-      <body
-        className={`${montserrat.variable} ${roboto.variable} antialiased`}
-      >
-        <Header />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" className={roboto.variable}>
+        <body className={inter.className}>
+          <div className="flex min-h-screen flex-col pt-[3.5rem]">
+            <Header />
+            {children}
+            <Footer />
+          </div>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
