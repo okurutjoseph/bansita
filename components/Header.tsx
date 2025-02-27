@@ -5,11 +5,13 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { useAuth, SignInButton } from "@clerk/nextjs";
 import MiniCart from './MiniCart';
+import { useUser } from "@clerk/nextjs";
 
 const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMiniCartOpen, setIsMiniCartOpen] = useState(false);
   const { isSignedIn } = useAuth();
+  const { user } = useUser();
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-background z-50">
@@ -23,7 +25,7 @@ const Header = () => {
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-5.34 0-8 2.68-8 4v2h16v-2c0-1.32-2.66-4-8-4z"/>
             </svg>
-            <span>Account</span>
+            <span>Hi, {user?.firstName || 'there'}</span>
           </Link>
         ) : (
           <SignInButton mode="modal">
