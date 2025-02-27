@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
           {/* HELP Section */}
           <div className="md:col-span-2">
-            <h3 className="font-montserrat text-sm font-medium mb-4">HELP</h3>
+            <h3 className="font-montserrat text-base font-bold text-black mb-6">HELP</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/faq" className="hover:text-foreground/70">FAQ</Link></li>
               <li><Link href="/delivery-information" className="hover:text-foreground/70">Delivery Information</Link></li>
@@ -23,7 +23,7 @@ const Footer = () => {
 
           {/* MY ACCOUNT Section */}
           <div className="md:col-span-2">
-            <h3 className="font-montserrat text-sm font-medium mb-4">MY ACCOUNT</h3>
+            <h3 className="font-montserrat text-base font-bold text-black mb-6">MY ACCOUNT</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/login" className="hover:text-foreground/70">Login</Link></li>
               <li><Link href="/register" className="hover:text-foreground/70">Register</Link></li>
@@ -32,7 +32,7 @@ const Footer = () => {
 
           {/* PAGES Section */}
           <div className="md:col-span-2">
-            <h3 className="font-montserrat text-sm font-medium mb-4">PAGES</h3>
+            <h3 className="font-montserrat text-base font-bold text-black mb-6">PAGES</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/gymshark-central" className="hover:text-foreground/70">Bansita Central</Link></li>
               <li><Link href="/about-us" className="hover:text-foreground/70">About Us</Link></li>
@@ -45,7 +45,7 @@ const Footer = () => {
 
           {/* MORE ABOUT BANSITA Section */}
           <div className="md:col-span-6">
-            <h3 className="font-montserrat text-sm font-medium mb-4">MORE ABOUT BANSITA</h3>
+            <h3 className="font-montserrat text-base font-bold text-black mb-6">MORE ABOUT BANSITA</h3>
             <div className="flex flex-col sm:flex-row gap-2">
               <Link href="/blog" className="block flex-1">
                 <div className="p-4 rounded-lg">
