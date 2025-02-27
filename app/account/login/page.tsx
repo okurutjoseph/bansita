@@ -21,7 +21,7 @@ export default function LoginPage() {
                 }
               }}
               redirectUrl="/account"
-              signUpUrl="/account/register"
+              signUpUrl="/account/signup"
             />
           </div>
         </div>
