@@ -25,7 +25,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" className={roboto.variable}>
         <body className={inter.className}>
-          <div className="flex min-h-screen flex-col pt-[3.5rem]">
+          <div className="flex min-h-screen flex-col pt-[7rem]">
             <Header />
             {children}
             <Footer />

@@ -9,18 +9,12 @@ const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const { isSignedIn } = useAuth();
 
-  const handleAccountClick = (e: React.MouseEvent) => {
-    if (!isSignedIn) {
-      e.preventDefault();
-    }
-  };
-
   return (
     <header className="fixed top-0 left-0 right-0 bg-background z-50">
       {/* Top Bar */}
-      <div className="hidden sm:flex justify-end items-center h-[3.5rem] pl-24 text-xs space-x-4 bg-[#ebebeb] font-roboto">
+      <div className="hidden sm:flex justify-end items-center h-[3.5rem] pl-24 text-xs bg-[#ebebeb] font-roboto">
         {isSignedIn ? (
-          <Link href="/account" className="flex items-center gap-1.5 hover:underline border-r border-[#bbbcbc] pr-4">
+          <Link href="/account" className="flex items-center gap-1.5 hover:underline border-r border-[#bbbcbc] h-full px-4">
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
@@ -28,7 +22,7 @@ const Header = () => {
           </Link>
         ) : (
           <SignInButton mode="modal">
-            <button className="flex items-center gap-1.5 hover:underline border-r border-[#bbbcbc] pr-4">
+            <button className="flex items-center gap-1.5 hover:underline border-r border-[#bbbcbc] h-full px-4">
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
@@ -36,26 +30,26 @@ const Header = () => {
             </button>
           </SignInButton>
         )}
-        <Link href="/accessibility" className="hover:underline border-r border-[#bbbcbc] pr-4">
+        <Link href="/accessibility" className="hover:underline border-r border-[#bbbcbc] h-full px-4 flex items-center">
           Accessibility Statement
         </Link>
-        <Link href="/help" className="hover:underline border-r border-[#bbbcbc] pr-4">
+        <Link href="/help" className="hover:underline border-r border-[#bbbcbc] h-full px-4 flex items-center">
           Help
         </Link>
-        <Link href="/email-signup" className="hover:underline border-r border-[#bbbcbc] pr-4">
+        <Link href="/email-signup" className="hover:underline border-r border-[#bbbcbc] h-full px-4 flex items-center">
           Email Sign Up
         </Link>
-        <Link href="/blog" className="hover:underline border-r border-[#bbbcbc] pr-4">
+        <Link href="/blog" className="hover:underline border-r border-[#bbbcbc] h-full px-4 flex items-center">
           Blog
         </Link>
-        <div className="flex items-center space-x-2 px-4">
+        <div className="flex items-center h-full px-4">
           <span>US</span>
-          <span>English</span>
+          <span className="ml-2">English</span>
         </div>
       </div>
 
       {/* Main Header */}
-      <div className="px-4 py-4 flex items-center justify-between border-b border-foreground/[.08]">
+      <div className="bg-white px-4 py-4 flex items-center justify-between border-b border-foreground/[.08]">
         {/* Logo */}
         <Link href="/" className="flex-shrink-0">
           <Image
