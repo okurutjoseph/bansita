@@ -1,15 +1,15 @@
 'use client';
 
-import { SignUp } from "@clerk/nextjs";
+import { SignIn } from "@clerk/nextjs";
 
-export default function SignUpPage() {
+export default function LoginPage() {
   return (
-    <main className="min-h-screen bg-white pt-32 pb-16">
-      <div className="container mx-auto max-w-6xl px-4">
-        <div className="flex flex-col items-center justify-center">
-          <h1 className="text-4xl font-bold mb-8">Sign Up</h1>
+    <main className="min-h-screen flex items-center justify-center">
+      <div className="w-full max-w-6xl px-4">
+        <div className="flex flex-col items-center">
+          <h1 className="text-4xl font-bold mb-8">Sign In</h1>
           <div className="w-full max-w-[400px]">
-            <SignUp
+            <SignIn
               appearance={{
                 elements: {
                   formButtonPrimary: 
@@ -21,7 +21,7 @@ export default function SignUpPage() {
                 }
               }}
               redirectUrl="/account"
-              signInUrl="/account/login"
+              signUpUrl="/account/signup"
             />
           </div>
         </div>
