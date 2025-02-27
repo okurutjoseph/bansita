@@ -36,7 +36,6 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li><Link href="/gymshark-central" className="hover:text-foreground/70">Bansita Central</Link></li>
               <li><Link href="/about-us" className="hover:text-foreground/70">About Us</Link></li>
-              <li><Link href="/careers" className="hover:text-foreground/70">Careers</Link></li>
               <li><Link href="/student-discount" className="hover:text-foreground/70">Contact Us</Link></li>
               <li><Link href="/accessibility" className="hover:text-foreground/70">Accessibility Statement</Link></li>
               <li><Link href="/sustainability" className="hover:text-foreground/70">Sustainability</Link></li>
@@ -133,7 +132,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-foreground/[.08]">
           {/* Copyright */}
           <div className="text-xs mb-4 md:mb-0">
-            © {new Date().getFullYear()} Bansita Limited | All Rights Reserved. | We Do Gym.
+            © {new Date().getFullYear()} Bansita Limited | All Rights Reserved. | Everyday Comfort.
           </div>
 
           {/* Legal Links */}
