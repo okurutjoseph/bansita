@@ -12,39 +12,55 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 bg-background z-50">
       {/* Top Bar */}
-      <div className="hidden sm:flex justify-end items-center h-[3.5rem] pl-24 text-xs bg-[#ebebeb] font-roboto">
+      <div className="hidden sm:flex justify-end items-center h-[2.5rem] pl-24 bg-[#ebebeb] font-roboto">
         {isSignedIn ? (
-          <Link href="/account" className="flex items-center gap-1.5 hover:underline border-r border-[#bbbcbc] h-full px-4">
+          <Link 
+            href="/account" 
+            className="flex items-center gap-1.5 border-r border-[#bbbcbc] h-full px-[1rem] text-[#53565a] hover:text-black text-[0.8rem] font-normal"
+          >
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-5.34 0-8 2.68-8 4v2h16v-2c0-1.32-2.66-4-8-4z"/>
             </svg>
             <span>Account</span>
           </Link>
         ) : (
           <SignInButton mode="modal">
-            <button className="flex items-center gap-1.5 hover:underline border-r border-[#bbbcbc] h-full px-4">
+            <button 
+              className="flex items-center gap-1.5 border-r border-[#bbbcbc] h-full px-[1rem] text-[#53565a] hover:text-black text-[0.8rem] font-normal"
+            >
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-5.34 0-8 2.68-8 4v2h16v-2c0-1.32-2.66-4-8-4z"/>
               </svg>
               <span>Account</span>
             </button>
           </SignInButton>
         )}
-        <Link href="/accessibility" className="hover:underline border-r border-[#bbbcbc] h-full px-4 flex items-center">
+        <Link 
+          href="/accessibility" 
+          className="border-r border-[#bbbcbc] h-full px-[1rem] flex items-center text-[#53565a] hover:text-black text-[0.8rem] font-normal"
+        >
           Accessibility Statement
         </Link>
-        <Link href="/help" className="hover:underline border-r border-[#bbbcbc] h-full px-4 flex items-center">
+        <Link 
+          href="/help" 
+          className="border-r border-[#bbbcbc] h-full px-[1rem] flex items-center text-[#53565a] hover:text-black text-[0.8rem] font-normal"
+        >
           Help
         </Link>
-        <Link href="/email-signup" className="hover:underline border-r border-[#bbbcbc] h-full px-4 flex items-center">
+        <Link 
+          href="/email-signup" 
+          className="border-r border-[#bbbcbc] h-full px-[1rem] flex items-center text-[#53565a] hover:text-black text-[0.8rem] font-normal"
+        >
           Email Sign Up
         </Link>
-        <Link href="/blog" className="hover:underline border-r border-[#bbbcbc] h-full px-4 flex items-center">
+        <Link 
+          href="/blog" 
+          className="border-r border-[#bbbcbc] h-full px-[1rem] flex items-center text-[#53565a] hover:text-black text-[0.8rem] font-normal"
+        >
           Blog
         </Link>
-        <div className="flex items-center h-full px-4">
-          <span>US</span>
-          <span className="ml-2">English</span>
+        <div className="flex items-center h-full text-[#53565a] text-[0.8rem] font-normal">
+          <span className="pl-[1rem] pr-[0.8rem] text-[0.8rem]">English</span>
         </div>
       </div>
 
@@ -91,14 +107,14 @@ const Header = () => {
           {isSignedIn ? (
             <Link href="/account" className="p-2 hover:bg-foreground/[.05] rounded-full">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-5.34 0-8 2.68-8 4v2h16v-2c0-1.32-2.66-4-8-4z"/>
               </svg>
             </Link>
           ) : (
             <SignInButton mode="modal">
               <button className="p-2 hover:bg-foreground/[.05] rounded-full">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 12a4 4 0 100-8 4 4 0 000 8zm0 2c-5.34 0-8 2.68-8 4v2h16v-2c0-1.32-2.66-4-8-4z"/>
                 </svg>
               </button>
             </SignInButton>
@@ -107,7 +123,7 @@ const Header = () => {
           {/* Cart */}
           <Link href="/cart" className="p-2 hover:bg-foreground/[.05] rounded-full">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V5c0-1.7 1.3-3 3-3s3 1.3 3 3v2h4l2 15H4L6 7h2zm2-2c0-.6.4-1 1-1s1 .4 1 1v2h-2V5z"/>
             </svg>
           </Link>
 
