@@ -4,9 +4,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { useAuth, SignInButton } from "@clerk/nextjs";
+import MiniCart from './MiniCart';
 
 const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isMiniCartOpen, setIsMiniCartOpen] = useState(false);
   const { isSignedIn } = useAuth();
 
   return (
@@ -78,10 +80,25 @@ const Header = () => {
         </Link>
 
         {/* Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <Link href="/women" className="font-montserrat text-sm hover:text-foreground/70">WOMEN</Link>
-          <Link href="/men" className="font-montserrat text-sm hover:text-foreground/70">MEN</Link>
-          <Link href="/accessories" className="font-montserrat text-sm hover:text-foreground/70">ACCESSORIES</Link>
+        <nav className="hidden md:flex justify-center items-center">
+          <Link 
+            href="/women" 
+            className="font-montserrat text-[1rem] font-bold text-black hover:text-foreground/70 py-1.5 mx-4 transition-colors duration-150 cursor-pointer"
+          >
+            WOMEN
+          </Link>
+          <Link 
+            href="/men" 
+            className="font-montserrat text-[1rem] font-bold text-black hover:text-foreground/70 py-1.5 mx-4 transition-colors duration-150 cursor-pointer"
+          >
+            MEN
+          </Link>
+          <Link 
+            href="/accessories" 
+            className="font-montserrat text-[1rem] font-bold text-black hover:text-foreground/70 py-1.5 mx-4 transition-colors duration-150 cursor-pointer"
+          >
+            ACCESSORIES
+          </Link>
         </nav>
 
         {/* Actions */}
@@ -121,11 +138,14 @@ const Header = () => {
           )}
 
           {/* Cart */}
-          <Link href="/cart" className="p-2 hover:bg-foreground/[.05] rounded-full">
+          <button 
+            onClick={() => setIsMiniCartOpen(true)} 
+            className="p-2 hover:bg-foreground/[.05] rounded-full"
+          >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V5c0-1.7 1.3-3 3-3s3 1.3 3 3v2h4l2 15H4L6 7h2zm2-2c0-.6.4-1 1-1s1 .4 1 1v2h-2V5z"/>
             </svg>
-          </Link>
+          </button>
 
           {/* Mobile Menu Button */}
           <button className="md:hidden p-2 hover:bg-foreground/[.05] rounded-full">
@@ -153,6 +173,12 @@ const Header = () => {
           </div>
         </div>
       )}
+
+      {/* Add MiniCart component */}
+      <MiniCart 
+        isOpen={isMiniCartOpen} 
+        onClose={() => setIsMiniCartOpen(false)} 
+      />
     </header>
   );
 };
