@@ -39,8 +39,11 @@ export default function AccountPage() {
       <div className="container mx-auto max-w-6xl px-4">
         {/* Account Header */}
         <div className="flex items-center justify-between mb-12">
-          <h1 className="text-4xl font-bold">YOUR BANSITA ACCOUNT</h1>
-          <div className="flex items-center gap-4">
+          <div className="w-[100px]">
+            {/* Empty div for spacing */}
+          </div>
+          <h1 className="text-4xl font-bold text-center flex-1">YOUR BANSITA ACCOUNT</h1>
+          <div className="w-[100px] flex justify-end">
             <UserButton afterSignOutUrl="/" />
           </div>
         </div>
