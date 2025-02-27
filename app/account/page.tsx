@@ -53,6 +53,11 @@ export default function AccountPage() {
           <div>
             <h2 className="text-xl font-bold">{user?.firstName} {user?.lastName}</h2>
             <p className="text-gray-600">{user?.emailAddresses[0].emailAddress}</p>
+            {user?.publicMetadata?.role === 'admin' && (
+              <Link href="/admin/account" className="text-blue-600 hover:text-blue-800 text-sm font-medium">
+                Admin Dashboard →
+              </Link>
+            )}
           </div>
           <button onClick={handleSignOut} className="ml-4 text-sm underline hover:text-gray-600">
             Log out
