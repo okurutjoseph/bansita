@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.12.1",
+    "@uploadthing/react": "^7.3.0",
     "convex": "^1.19.2",
     "next": "15.1.7",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "uploadthing": "^7.5.2"
   },
   "devDependencies": {
     "@clerk/types": "^4.47.0",

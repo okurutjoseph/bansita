@@ -142,7 +142,7 @@ const Header = () => {
             className="p-2 hover:bg-foreground/[.05] rounded-full"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V5c0-1.7 1.3-3 3-3s3 1.3 3 3v2h4l2 15H4L6 7h2zm2-2c0-.6.4-1 1-1s1 .4 1 1v2h-2V5z"/>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
             </svg>
           </button>
 
