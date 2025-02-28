@@ -1,7 +1,7 @@
-import { ClerkProvider } from '@clerk/nextjs'
 import { Inter, Roboto } from 'next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import { Providers } from '@/components/Providers'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -22,16 +22,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
-      <html lang="en" className={roboto.variable}>
-        <body className={inter.className}>
+    <html lang="en" className={roboto.variable}>
+      <body className={inter.className}>
+        <Providers>
           <div className="flex min-h-screen flex-col pt-[7rem]">
             <Header />
             {children}
             <Footer />
           </div>
-        </body>
-      </html>
-    </ClerkProvider>
+        </Providers>
+      </body>
+    </html>
   );
 }

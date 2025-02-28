@@ -1,0 +1,10 @@
+{
+  "project": "bansita-d8633",
+  "team": "okurutjoseph",
+  "prodUrl": "https://fiery-gerbil-473.convex.cloud",
+  "functions": "convex/",
+  "authInfo": {
+    "domain": "https://natural-leopard-94.clerk.accounts.dev/",
+    "applicationID": "convex"
+  }
+} 

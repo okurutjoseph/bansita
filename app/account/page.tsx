@@ -1,6 +1,6 @@
 'use client';
 
-import { useUser, UserButton, useAuth, useClerk } from "@clerk/nextjs";
+import { useUser, useAuth, useClerk } from "@clerk/nextjs";
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
@@ -38,55 +38,43 @@ export default function AccountPage() {
     <main className="min-h-screen bg-white pt-32 pb-16">
       <div className="container mx-auto max-w-6xl px-4">
         {/* Account Header */}
-        <div className="flex items-center justify-between mb-12">
-          <div className="w-[100px]">
-            {/* Empty div for spacing */}
-          </div>
-          <h1 className="text-4xl font-bold text-center flex-1">YOUR BANSITA ACCOUNT</h1>
-          <div className="w-[100px] flex justify-end">
-            <UserButton afterSignOutUrl="/" />
-          </div>
+        <div className="flex items-center justify-center mb-12">
+          <h1 className="text-4xl font-bold">YOUR BANSITA ACCOUNT</h1>
         </div>
 
         {/* User Info */}
-        <div className="flex items-center gap-4 mb-12">
-          <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-xl font-bold">
-            {user?.firstName?.[0] || 'U'}
-          </div>
-          <div>
+        <div className="flex items-start gap-4 mb-12">
+          {user?.imageUrl ? (
+            <img 
+              src={user.imageUrl} 
+              alt={`${user.firstName}'s profile`}
+              className="w-12 h-12 rounded-full object-cover"
+            />
+          ) : (
+            <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-xl font-bold">
+              {user?.firstName?.[0] || 'U'}
+            </div>
+          )}
+          <div className="flex-grow">
             <h2 className="text-xl font-bold">{user?.firstName} {user?.lastName}</h2>
-            <p className="text-gray-600">{user?.emailAddresses[0].emailAddress}</p>
+            <div className="flex items-center gap-4">
+              <p className="text-gray-600">{user?.emailAddresses[0].emailAddress}</p>
+              <button onClick={handleSignOut} className="text-sm underline hover:text-gray-600">
+                Log out
+              </button>
+            </div>
             {user?.publicMetadata?.role === 'admin' && (
               <Link href="/admin/account" className="text-blue-600 hover:text-blue-800 text-sm font-medium">
                 Admin Dashboard →
               </Link>
             )}
           </div>
-          <button onClick={handleSignOut} className="ml-4 text-sm underline hover:text-gray-600">
-            Log out
-          </button>
         </div>
 
         {/* Account Sections */}
-        <div className="grid grid-cols-1 gap-8">
-          {/* Orders Section */}
-          <div className="border border-gray-200 rounded-lg p-8">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold">YOUR ORDERS</h2>
-              <Link href="/orders" className="text-sm underline">
-                View all orders
-              </Link>
-            </div>
-            <div className="flex items-center justify-center h-48 bg-gray-50 rounded-lg">
-              <div className="text-center">
-                <p className="text-lg font-medium mb-2">NO ORDERS</p>
-                <p className="text-gray-600">You've made no orders</p>
-              </div>
-            </div>
-          </div>
-
+        <div className="grid grid-cols-1 gap-8 max-w-2xl">
           {/* Address Book Section */}
-          <div className="border border-gray-200 rounded-lg p-8">
+          <div className="border border-gray-200 p-8 bg-[rgb(249,250,251)]">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold">ADDRESS BOOK</h2>
             </div>
@@ -95,24 +83,28 @@ export default function AccountPage() {
             </Link>
           </div>
 
-          {/* Returns Section */}
-          <div className="border border-gray-200 rounded-lg p-8">
+          {/* Orders Section */}
+          <div className="border border-gray-200 p-8 bg-[rgb(249,250,251)]">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold">RETURNS</h2>
+              <h2 className="text-2xl font-bold">YOUR ORDERS</h2>
             </div>
-            <button className="bg-gray-800 text-white px-8 py-4 rounded-lg font-medium w-full md:w-auto">
-              RETURN AN ITEM
-            </button>
+            <div className="flex justify-center">
+              <button className="bg-gray-800 text-white px-8 py-4 rounded-lg font-medium">
+                VIEW ORDERS
+              </button>
+            </div>
           </div>
 
-          {/* Refer a Friend Section */}
-          <div className="border border-gray-200 rounded-lg p-8">
+          {/* Wishlist Section */}
+          <div className="border border-gray-200 p-8 bg-[rgb(249,250,251)]">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold">REFER A FRIEND</h2>
+              <h2 className="text-2xl font-bold">WISHLIST</h2>
             </div>
-            <button className="bg-gray-800 text-white px-8 py-4 rounded-lg font-medium w-full md:w-auto">
-              VISIT YOUR DASHBOARD
-            </button>
+            <div className="flex justify-center">
+              <button className="bg-gray-800 text-white px-8 py-4 rounded-lg font-medium">
+                VIEW WISHLIST
+              </button>
+            </div>
           </div>
         </div>
       </div>
