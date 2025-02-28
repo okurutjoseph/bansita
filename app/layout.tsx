@@ -3,6 +3,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { Providers } from '@/components/Providers'
 import './globals.css'
+import ClientLayout from './client-layout'
 
 const inter = Inter({ subsets: ['latin'] })
 const roboto = Roboto({
@@ -25,11 +26,11 @@ export default function RootLayout({
     <html lang="en" className={roboto.variable}>
       <body className={inter.className}>
         <Providers>
-          <div className="flex min-h-screen flex-col pt-[7rem]">
-            <Header />
-            {children}
-            <Footer />
-          </div>
+          <ClientLayout>
+            <div className="flex min-h-screen flex-col pt-[7rem]">
+              {children}
+            </div>
+          </ClientLayout>
         </Providers>
       </body>
     </html>
